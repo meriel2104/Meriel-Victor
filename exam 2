@@ -1,1 +1,1 @@
-f l is a list, what does the expression l[::-1] do?
+if l is a list, what does the expression l[::-1] do?
