@@ -112,6 +112,38 @@ Rubric
 1pt Returning the sum
 Instant Fail on this problem for not reading this:  Using the input( ) function inside your function. Using input()  inside your function negates the purpose of providing the the filename as an argument.
 
+ANSWER:
+import csv
+
+def sum_of_non_food_purchases(filename):
+    total_sum = 0
+
+    with open(filename, 'r') as file:
+        # Create a CSV reader
+        reader = csv.reader(file)
+
+        # Iterate through each row in the CSV file
+        for row in reader:
+            # Extract individual data fields
+            item_type, date, amount = row
+
+            # Convert the amount to a float
+            amount = float(amount)
+
+            # Check if the item type is not "Food" and sum the amount
+            if item_type.lower() != "food":
+                total_sum += amount
+
+    return total_sum
+
+# Example usage:
+filename = "path/to/your/file.csv"  # Replace with the actual file path
+result = sum_of_non_food_purchases(filename)
+print("Sum of non-food purchases:", result)
+
+
+
+
 6. Professor Rosen has challenged you to a game of chance!
 
 The rules of the game are as follows - you flip 10 coins (or flip a single coin 10 times). 
@@ -122,4 +154,36 @@ Professor Rosen suggests that since each coin has a 50% chance of landing on the
 However, you know that Professor Rosen does not gamble unless he is almost certainly assured victory, so he must be lying about the odds. 
 
 Simulate the game 100000 times to figure out the true odds.
+
+ANSWER:
+import random
+
+def simulate_game():
+    # Simulate flipping 10 coins
+    flips = [random.choice(['Heads', 'Tails']) for _ in range(10)]
+
+    # Count the number of Heads and Tails
+    heads_count = flips.count('Heads')
+    tails_count = 10 - heads_count
+
+    # Check if the result is 5 Heads and 5 Tails
+    return heads_count == tails_count
+
+def calculate_win_probability(num_simulations):
+    # Simulate the game multiple times
+    wins = sum(simulate_game() for _ in range(num_simulations))
+
+    # Calculate the probability of winning
+    win_probability = wins / num_simulations
+
+    return win_probability
+
+# Set the number of simulations
+num_simulations = 100000
+
+# Calculate the probability of winning
+probability_of_winning = calculate_win_probability(num_simulations)
+
+# Print the result
+print(f"The probability of winning is approximately {probability_of_winning * 100:.2f}%.")
 
