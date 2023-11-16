@@ -3,6 +3,22 @@
 #japanize("01/13/1999" )-> "1999/01/13"
 #japanize("04/06/1958") -> "1958/04/06"
 def japanize(date):
+ANSWER:
+from datetime import datetime
+
+def japanize(date):
+    # Parse the input date string in mm/dd/yyyy format
+    us_date = datetime.strptime(date, '%m/%d/%Y')
+
+    # Format the date in yyyy/mm/dd format
+    japanese_date = us_date.strftime('%Y/%m/%d')
+
+    return japanese_date
+
+# Test cases
+print(japanize("01/13/1999"))  # Output: "1999/01/13"
+print(japanize("04/06/1958"))  # Output: "1958/04/06"
+
 
 
 2. Write a function called evenWords, which given a list of strings, returns the number of strings that have an even number of characters.
@@ -12,6 +28,19 @@ def japanize(date):
 # (Batman and Spider-Man have an even size, "All Might" does not )
 # evenWords(["zero", "one", "two", "three"]) -> 1 
 def evenWords(wordList): 
+ANSWER
+def evenWords(wordList):
+    # Use a list comprehension to count strings with an even number of characters
+    even_count = sum(len(word) % 2 == 0 for word in wordList)
+
+    return even_count
+
+# Test cases
+print(evenWords(["cool", "hot", "warm"]))  # Output: 2
+print(evenWords(["Batman", "Spider-Man", "All Might"]))  # Output: 2
+print(evenWords(["zero", "one", "two", "three"]))  # Output: 1
+
+
 
 
 3. Write a function called sumOfLargests().  sumOfLargests() takes in a list of lists of integers (in other words, multiple lists of integers that have been grouped together) and returns the sum of only the largest number from each list.  Examples are given in the comments below.
@@ -19,6 +48,18 @@ def evenWords(wordList):
 # sumOfLargests([[1,2,3], [-1,-2,-3], [1000]]) -> 1002
 # sumOfLargests([[5,1,-2,3], [4,3,-7], [1,2]]) -> 11
 def sumOfLargests(listOfLists):
+ANSWER
+def sumOfLargests(listOfLists):
+    # Use a list comprehension to find the maximum value in each list
+    max_values = [max(lst) for lst in listOfLists if lst]
+
+    # Return the sum of the maximum values
+    return sum(max_values)
+
+# Test cases
+print(sumOfLargests([[1,2,3], [-1,-2,-3], [1000]]))  # Output: 1002
+print(sumOfLargests([[5,1,-2,3], [4,3,-7], [1,2]]))  # Output: 11
+
 
 4. Write a function called mostCommonWord. which given a String, finds the most common word in the string (ie which word appears the most).
 You can assume the text only has lowercase letters and spaces and there will be no ties.
@@ -27,6 +68,26 @@ You can assume the text only has lowercase letters and spaces and there will be 
 #mostCommonWord("buffalo buffalo buffalo buffalo buffalo buffalo buffalo buffalo is a grammatically correct sentence") -> "buffalo" 
 #mostCommonWord("did you ever hear the tragedy of darth plagueis the wise") -> "the"
 def mostCommonWord(text):
+ANSWER:
+from collections import Counter
+
+def mostCommonWord(text):
+    # Split the text into words
+    words = text.split()
+
+    # Use Counter to count the occurrences of each word
+    word_counts = Counter(words)
+
+    # Find the most common word
+    most_common_word = max(word_counts, key=word_counts.get)
+
+    return most_common_word
+
+# Test cases
+print(mostCommonWord("this is the story of the boy in the red hat"))  # Output: "the"
+print(mostCommonWord("buffalo buffalo buffalo buffalo buffalo buffalo buffalo buffalo is a grammatically correct sentence"))  # Output: "buffalo"
+print(mostCommonWord("did you ever hear the tragedy of darth plagueis the wise"))  # Output: "the"
+
 
 5. Suppose you have a csv file that contains some number of purchases. Each line is a separate purchase and contains the type of item purchased, the date of the transaction, and the amount of money spent on the item.  For example, part of the file might look like below:
 
