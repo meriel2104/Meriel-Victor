@@ -1,15 +1,2 @@
-if l is a list, what does the expression l[::-1] do?
-
-So, l[::-1] is a concise and Pythonic way to reverse the elements of a list.
-l: This represents the list.
-[::-1]: This is a slicing operation. The start:stop:step syntax is used for slicing in Python, and when all three components are provided, it creates a new list by extracting elements from the original list based on the specified step.
-In this case, start and stop are omitted, and step is set to -1. Using a step of -1 in a slice means to iterate over the list in reverse order. So, l[::-1] produces a new list containing all elements of l, but in reverse order.
-IT REVERSES THE LIST
-
-How can use slice notation to get the last 3 characters of a string?
-s = "example_string"
-last_three_characters = s[-3:]
-print(last_three_characters)
-In this example, s[-3:] starts at the third-to-last character of the string (-3) and goes until the end of the string (:). The result is a new string containing the last three characters of the original string.
-
-Keep in mind that if the length of the string is less than three, this will still work, and it will give you all the characters in the string
+I have a coin that is slightly weighted in favor of heads; it will land on heads 55% of the time.
+How would you simulate this in python using the random module?
