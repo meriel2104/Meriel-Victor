@@ -1,13 +1,14 @@
-Hello 
-by = "You are"
-az = "doing a great "
-io = "job"
-qy = "keep it up!"
+From A Prior Exam Suppose we had a file called temperature.csv, which contains
+the daily high and low temperatures recorded in Philadelphia. The file is composed of three fields per
+a line, containing the date, the high temperature, and the low temperature. Each field is separated
+commas. For example, the contents of the file might look like this:
+11/11/19, 64, 40
+11/12/19, 49, 21
+11/13/19, 33, 22
+... ... ...
+Write a program that calculates or prints the following:
+5pts The day with the hottest high temperature.
+5pts The day with the coldest low temperature.
+10pts The average high temperature of the entire file.
+Page 4 of 15 20 points
 
-message = by+az+io+","+qy
-print(by+az+io+qy)
-print(message)
-print(i want to get drunk)
-
-
-Question 2:
