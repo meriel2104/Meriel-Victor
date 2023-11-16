@@ -1,2 +1,27 @@
 I have a coin that is slightly weighted in favor of heads; it will land on heads 55% of the time.
 How would you simulate this in python using the random module?
+
+import random
+
+def simulate_weighted_coin(probability_heads):
+    # Generate a random float between 0 and 1
+    random_number = random.uniform(0, 1)
+
+    # Check if it lands on heads based on the given probability
+    if random_number < probability_heads:
+        return "Heads"
+    else:
+        return "Tails"
+
+# Simulate the coin toss multiple times
+num_simulations = 1000  # You can adjust this number
+count_heads = 0
+
+for _ in range(num_simulations):
+    result = simulate_weighted_coin(0.55)
+    if result == "Heads":
+        count_heads += 1
+
+# Calculate and print the percentage of times it landed on heads
+percentage_heads = (count_heads / num_simulations) * 100
+print(f"The coin landed on Heads {percentage_heads:.2f}% of the time.")
