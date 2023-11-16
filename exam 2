@@ -12,3 +12,41 @@ Write a program that calculates or prints the following:
 10pts The average high temperature of the entire file.
 Page 4 of 15 20 points
 
+def process_temperature_data(file_path):
+    # Initialize variables
+    hottest_day = None
+    coldest_day = None
+    total_high_temperature = 0
+    total_days = 0
+
+    # Read temperature data from the file
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Process each line of the file
+    for line in lines:
+        date, high_temp, low_temp = map(int, line.strip().split(','))
+
+        # Update hottest day
+        if hottest_day is None or high_temp > hottest_day[1]:
+            hottest_day = (date, high_temp)
+
+        # Update coldest day
+        if coldest_day is None or low_temp < coldest_day[1]:
+            coldest_day = (date, low_temp)
+
+        # Update total high temperature
+        total_high_temperature += high_temp
+        total_days += 1
+
+    # Calculate average high temperature
+    average_high_temperature = total_high_temperature / total_days
+
+    # Print results
+    print(f"The day with the hottest high temperature: {hottest_day[0]} (Temperature: {hottest_day[1]}°C)")
+    print(f"The day with the coldest low temperature: {coldest_day[0]} (Temperature: {coldest_day[1]}°C)")
+    print(f"The average high temperature of the entire file: {average_high_temperature:.2f}°C")
+
+# Example usage
+file_path = 'temperature_data.txt'  # Replace with the path to your temperature data file
+process_temperature_data(file_path)
