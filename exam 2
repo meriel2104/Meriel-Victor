@@ -1,1 +1,6 @@
 if l is a list, what does the expression l[::-1] do?
+
+So, l[::-1] is a concise and Pythonic way to reverse the elements of a list.
+l: This represents the list.
+[::-1]: This is a slicing operation. The start:stop:step syntax is used for slicing in Python, and when all three components are provided, it creates a new list by extracting elements from the original list based on the specified step.
+In this case, start and stop are omitted, and step is set to -1. Using a step of -1 in a slice means to iterate over the list in reverse order. So, l[::-1] produces a new list containing all elements of l, but in reverse order.
