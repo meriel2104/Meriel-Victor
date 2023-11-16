@@ -7,3 +7,9 @@ In this case, start and stop are omitted, and step is set to -1. Using a step of
 IT REVERSES THE LIST
 
 How can use slice notation to get the last 3 characters of a string?
+s = "example_string"
+last_three_characters = s[-3:]
+print(last_three_characters)
+In this example, s[-3:] starts at the third-to-last character of the string (-3) and goes until the end of the string (:). The result is a new string containing the last three characters of the original string.
+
+Keep in mind that if the length of the string is less than three, this will still work, and it will give you all the characters in the string
